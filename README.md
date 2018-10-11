@@ -30,7 +30,7 @@ to achieve the same thing.
 <h2>Contributing to food sentences dataset</h2>
 
 Pick a <b>singular</b> and <b>plural</b> form of a food word. A food word is a noun that describes a physcial thing you can eat. 
-Acceptable words: snack, pizza, soda, burger, bread
+Acceptable words: snack, pizza, soda, burger, bread<br/>
 Unacceptable words: lunch, dinner, breakfast
 
 Use a site like http://sentence.yourdictionary.com/ or http://sentencedict.com/ to generate sentences with the food word you want. Make sure that the sentence is using the word you picked in the form that was intended for the definition. For instance, 'soda' could be used for 'baking soda' and 'pop' could be used as a verb.
