@@ -1,6 +1,6 @@
 const listEmails = (gmail) => {
   return new Promise((resolve, reject) => {
-    gmail.users.messages.list({userId: 'me'}, (err, res) => {
+    gmail.users.messages.list({userId: 'me', labelIds: ['IMPORTANT']}, (err, res) => {
       if(err) {
         reject(err);
       } else {

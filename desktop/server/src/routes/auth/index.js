@@ -7,9 +7,9 @@ route.get('/login', (req, res) => {
 
 route.get('/redirect', (req, res) => {
   const { code } = req.query;
-  req.app.get('googleAuth').getToken(code, (err, token) => {
+  req.app.get('googleAuth').getToken(code, (err, tokens) => {
     if(err) { reject(err); }
-    req.app.get('googleAuth').credentials = token;
+    req.app.get('googleAuth').setCredentials(tokens);
     res.redirect('/');
   });
 });

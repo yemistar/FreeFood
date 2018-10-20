@@ -6,6 +6,11 @@ const { listEmails, getEmail } = require('../../fetch');
 
 var route = require('express').Router();
 
+route.use((req, res, next) => {
+  res.connection.setTimeout(60000);
+  next();
+})
+
 route.get('/', (req, res) => {
   if(req.app.get('googleAuth').credentials) {
     listEmails(req.app.get('gmail')).then((list) => {
@@ -17,7 +22,7 @@ route.get('/', (req, res) => {
       }
 
       Promise.all(promises).then((data) => {
-        let morePromises = data.map((d) => axios.post('http://127.0.0.1:5000', {email: d}))
+        let morePromises = data.map((d) => axios({method: 'post', url:'http://127.0.0.1:5000', timeout: 60000, data: {email: d}}))
 
         Promise.all(morePromises).then((pdata) => {
           let finalData = pdata.map((d) => d.data);
