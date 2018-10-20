@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
 
+import '../get_sent/GetData.dart';
+
 
 class ListTest extends StatelessWidget{
-  final String food;
-  final String club;
-  final String time;
-  final String place;
-  final String date;
-  final IconData icon;
 
-  List data;
+ final Data data;
+   Entities entities;
+   String date;
+   String time;
+   String place;
+
+  ListTest({@required this.data}){
+    this.entities=this.data.entities;
+    this.date= entities.dates.removeAt(0);
+    this.time= entities.times.removeAt(0);
+    this.place= entities.locations.removeAt(0);
+  }
 
 
 
 
-  ListTest({this.food,this.club,this.time,this.place,this.date,this.icon});
 
 
   static Widget Costum_divider(){
@@ -122,23 +128,30 @@ class ListTest extends StatelessWidget{
   }
 
   Widget allCombined(){
-    return Container(
-      height: 100.0,
-      child: Card(
-        child: Row(
+    return InkWell(
+      child: Container(
+        height: 100.0,
+        child: Card(
+          child: Row(
 
-          children: <Widget>[
-            Card(
-              elevation: 0.0,
-              child: Icon(icon,size: 50.0,),
+            children: <Widget>[
+              Card(
+                elevation: 0.0,
+                child: Icon(Icons.local_pizza,size: 50.0,),
 
-            ),
+              ),
 
-            Expanded(child: rightPart())
+              Expanded(child: rightPart())
 
-          ],
+            ],
+          ),
         ),
+
+
       ),
+      onTap: ((){
+        return data;
+      }),
     );
 
   }
@@ -152,41 +165,6 @@ class ListTest extends StatelessWidget{
 
 }
 
-class Help{
-  final String food;
-  final String club;
-  final String time;
-  final String place;
-  final String date;
-  final IconData icon;
-
-  Help(this.food,this.club,this.place, this.date, this.time, this.icon);
-
-
-
-  String getfood(){
-    return food;
-  }
-
-  String getclub(){
-    return club;
-  }
-
-  String getplace(){
-    return food;
-  }
-  String getdate(){
-    return food;
-  }
-
-  String gettime(){
-    return food;
-  }
-  IconData geticon(){
-    return icon;
-}
-
-}
 
 class blocks{
 
