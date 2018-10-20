@@ -1,7 +1,7 @@
 const auth = require('./auth');
-const root = require('./root');
+const api = require('./api');
 
 module.exports = {
   auth,
-  root
+  api
 }

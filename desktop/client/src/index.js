@@ -11,14 +11,19 @@ import createBrowserHistory from 'history/createBrowserHistory'
 
 import './app/styles/index.css';
 
+import Dashboard from './app/scenes/Dashboard';
+
+axios.defaults.headers.common['Content-Type'] = 'application/json';
+axios.defaults.baseURL = 'https://www.freefood.org';
+
 export const history = createBrowserHistory();
 
 ReactDOM.render((
   <PersistGate persistor={persistor}>
     <Provider store={store}>
-      <Router history={history} onUpdate={() => window.scrollTo(0,0)}>
+      <Router history={history}>
         <Switch>
-
+          <Route exact path="/" component={Dashboard} />
         </Switch>
       </Router>
     </Provider>

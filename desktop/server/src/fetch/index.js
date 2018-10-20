@@ -1,6 +1,6 @@
-const listEmails = (gmail) => {
+const listEmails = (gmail, pageToken) => {
   return new Promise((resolve, reject) => {
-    gmail.users.messages.list({userId: 'me', labelIds: ['IMPORTANT']}, (err, res) => {
+    gmail.users.messages.list({userId: 'me', labelIds: ['IMPORTANT'], pageToken, maxResults: 100}, (err, res) => {
       if(err) {
         reject(err);
       } else {

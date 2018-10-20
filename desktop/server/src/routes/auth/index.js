@@ -9,8 +9,11 @@ route.get('/redirect', (req, res) => {
   const { code } = req.query;
   req.app.get('googleAuth').getToken(code, (err, tokens) => {
     if(err) { reject(err); }
+
     req.app.get('googleAuth').setCredentials(tokens);
-    res.redirect('/');
+    req.session['tokens'] = tokens;
+
+    res.redirect('/api/list');
   });
 });
 

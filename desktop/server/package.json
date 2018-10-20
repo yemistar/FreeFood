@@ -16,6 +16,7 @@
     "circular-json": "^0.5.7",
     "compression": "^1.7.3",
     "express": "^4.16.4",
+    "express-session": "^1.15.6",
     "express-status-monitor": "^1.2.3",
     "googleapis": "^34.0.0",
     "helmet": "^3.14.0",

@@ -22,7 +22,7 @@ def root():
     data = request.get_json('email')
     if data['email'] is not None:
         parsed_parts = parse(data['email'])
-
+        
         payload = {'data': parsed_parts}
 
         return jsonify(payload)
