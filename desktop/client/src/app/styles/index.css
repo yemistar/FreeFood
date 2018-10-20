@@ -1,0 +1,107 @@
+@import url(./lib/OpenSans/opensans.css);
+@import url(./lib/fontawesome/css/font-awesome.css);
+@import url(./lib/animate/animate.css);
+.navigator__container {
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #2d5986;
+  height: 67px;
+  border-bottom: 1px solid #e8e8e8;
+  box-shadow: 1px 1px 10px -1px #e3e3e3;
+  margin-bottom: 10px; }
+
+.navigator__title {
+  font-weight: bold;
+  font-size: 40px; }
+
+.navigator__element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 20px;
+  transition: color 0.3s; }
+
+.navigator__element:hover {
+  cursor: pointer;
+  color: black; }
+
+.cemail__container {
+  padding: 20px;
+  margin: 10px;
+  width: 300px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #555;
+  border-radius: 4px;
+  transition: box-shadow 0.2s;
+  background-color: #fafafa; }
+
+.cemail__container:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.75); }
+
+.cemail__seperator {
+  color: black;
+  margin-left: 3px;
+  margin-right: 3px; }
+
+.cemail__food {
+  color: #e65c00;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 5px;
+  margin: 2px; }
+
+.cemail__foods {
+  margin-top: 10px; }
+
+.cemail__location {
+  color: #2d5986;
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 5px;
+  margin-right: 5px; }
+
+.cemail__locations {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
+.cemail__times {
+  margin-bottom: 10px; }
+
+.dashboard__emailcontainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; }
+
+.dashboard__loadingcontainer {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #555;
+  font-family: sans-serif;
+  background-color: #00cccc; }
+
+h3 {
+  margin: 0; }

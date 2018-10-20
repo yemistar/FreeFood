@@ -1,0 +1,32 @@
+Å´transitions⁄z[
+  {
+    "clas":0,
+    "name":"B-FOOD",
+    "label":"FOOD",
+    "move":1
+  },
+  {
+    "clas":1,
+    "name":"I-FOOD",
+    "label":"FOOD",
+    "move":2
+  },
+  {
+    "clas":2,
+    "name":"L-FOOD",
+    "label":"FOOD",
+    "move":3
+  },
+  {
+    "clas":3,
+    "name":"U-FOOD",
+    "label":"FOOD",
+    "move":4
+  },
+  {
+    "clas":4,
+    "name":"O",
+    "label":"",
+    "move":5
+  }
+]
