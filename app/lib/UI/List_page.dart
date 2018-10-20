@@ -2,36 +2,362 @@ import 'package:flutter/material.dart';
 
 
 class ListTest extends StatelessWidget{
-  final food='Pizza';
-  final club='Yemi club';
-  final time= ' Some time';
+  final String food;
+  final String club;
+  final String time;
+  final String place;
+  final String date;
+  final IconData icon;
 
-  @override
-  Widget build(BuildContext context) {
-    return list2();
+  List data;
+
+
+
+
+  ListTest({this.food,this.club,this.time,this.place,this.date,this.icon});
+
+
+  static Widget Costum_divider(){
+    return Container(
+      height: 20.0,
+      width: 2.0,
+      color: Colors.red,
+      margin: const EdgeInsets.only(left: 5.0, right: 5.0),
+    );
   }
 
-  Widget list( String Ftype, String Cname, String TandD){
 
-    return Column(
+  Widget dateAndtime(){
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
-        Padding(
-          padding: EdgeInsets.only(top: 5.0),
-        ),
-        Text(Ftype,textDirection: TextDirection.ltr,overflow: TextOverflow.fade,style: tsyle_food,),
-        Text(Cname,textDirection: TextDirection.ltr,overflow: TextOverflow.fade,style: tsyle_club,),
-        Expanded(
-            child: Text(TandD,textDirection: TextDirection.ltr,overflow: TextOverflow.fade,style: tsyle_club,)
-        )
-
+        Text(date,style: Tstyle.SubHeader,),
+        Costum_divider(),
+        Text(time,style: Tstyle.SubHeader,)
       ],
     );
   }
 
-  Widget list2(){
+   Widget foodL(){
+    return Card(
+      elevation: 0.0,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+        children: <Widget>[
+          Container(
+            child: Center(child: Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Text('pizza',style: Tstyle.SubHeader,),
+            )),
+
+            foregroundDecoration: BoxDecoration(
+              border: Border.all(color: Colors.black,width: 2.0,
+              ),
+              borderRadius: BorderRadius.all(Radius.elliptical(5.0, 5.0)),
+
+            ) ,
+
+          ),
+
+          Container(
+            child: Center(child: Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Text('apples',style: Tstyle.SubHeader,),
+            )),
+
+            foregroundDecoration: BoxDecoration(
+              border: Border.all(color: Colors.black,width: 2.0,
+              ),
+              borderRadius: BorderRadius.all(Radius.elliptical(5.0, 5.0)),
+
+            ) ,
+
+          ),
+
+          Container(
+            child: Center(child: Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Text('Snacks',style: Tstyle.SubHeader,),
+            )),
+
+            foregroundDecoration: BoxDecoration(
+              border: Border.all(color: Colors.black,width: 2.0,
+              ),
+              borderRadius: BorderRadius.all(Radius.elliptical(5.0, 5.0)),
+
+            ) ,
+
+          ),
+        ],
+      ),
+    );
+  }
+
+   Widget  rightPart(){
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        dateAndtime(),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(left: 10.0),
+            ),
+            Icon(
+              Icons.place,
+              size: 15.0,
+              color: Colors.red,
+            ),
+
+            Text(place,style: Tstyle.SubHeader,textAlign: TextAlign.left,),
+
+          ],
+        ),
+
+        foodL()
+      ],
+    );
+  }
+
+  Widget allCombined(){
     return Container(
-      height: 90.0,
-      padding: EdgeInsets.only(left: 10.0,right: 10.0),
+      height: 100.0,
+      child: Card(
+        child: Row(
+
+          children: <Widget>[
+            Card(
+              elevation: 0.0,
+              child: Icon(icon,size: 50.0,),
+
+            ),
+
+            Expanded(child: rightPart())
+
+          ],
+        ),
+      ),
+    );
+
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return allCombined();
+  }
+
+
+}
+
+class Help{
+  final String food;
+  final String club;
+  final String time;
+  final String place;
+  final String date;
+  final IconData icon;
+
+  Help(this.food,this.club,this.place, this.date, this.time, this.icon);
+
+
+
+  String getfood(){
+    return food;
+  }
+
+  String getclub(){
+    return club;
+  }
+
+  String getplace(){
+    return food;
+  }
+  String getdate(){
+    return food;
+  }
+
+  String gettime(){
+    return food;
+  }
+  IconData geticon(){
+    return icon;
+}
+
+}
+
+class blocks{
+
+  static Widget date_N_time(){
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        Text('Mon, sep 20',style: Tstyle.SubHeader,),
+        Costum_divider(),
+        Text('6:45pm - 7:45pm',style: Tstyle.SubHeader,)
+      ],
+    );
+  }
+
+  static Widget  rightPart(){
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        date_N_time(),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(left: 10.0),
+            ),
+            Icon(
+              Icons.place,
+              size: 15.0,
+              color: Colors.red,
+            ),
+            Text('Pearson',style: Tstyle.SubHeader,textAlign: TextAlign.left,),
+
+          ],
+        ),
+
+        foodL()
+      ],
+    );
+  }
+
+
+  static Widget foodL(){
+    return Card(
+      elevation: 0.0,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+        children: <Widget>[
+          Container(
+            child: Center(child: Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Text('pizza',style: Tstyle.SubHeader,),
+            )),
+
+          foregroundDecoration: BoxDecoration(
+            border: Border.all(color: Colors.black,width: 2.0,
+            ),
+            borderRadius: BorderRadius.all(Radius.elliptical(5.0, 5.0)),
+
+          ) ,
+
+          ),
+
+          Container(
+            child: Center(child: Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Text('apples',style: Tstyle.SubHeader,),
+            )),
+
+            foregroundDecoration: BoxDecoration(
+              border: Border.all(color: Colors.black,width: 2.0,
+              ),
+              borderRadius: BorderRadius.all(Radius.elliptical(5.0, 5.0)),
+
+            ) ,
+
+          ),
+
+          Container(
+            child: Center(child: Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Text('Snacks',style: Tstyle.SubHeader,),
+            )),
+
+            foregroundDecoration: BoxDecoration(
+              border: Border.all(color: Colors.black,width: 2.0,
+              ),
+              borderRadius: BorderRadius.all(Radius.elliptical(5.0, 5.0)),
+
+            ) ,
+
+          ),
+        ],
+      ),
+    );
+  }
+
+ static Widget Costum_divider(){
+    return Container(
+      height: 20.0,
+      width: 2.0,
+      color: Colors.red,
+      margin: const EdgeInsets.only(left: 5.0, right: 5.0),
+    );
+  }
+
+
+
+
+ static Widget allCombined(){
+    return Container(
+      height: 100.0,
+      child: Card(
+        child: Row(
+
+          children: <Widget>[
+            Card(
+              elevation: 0.0,
+              child: Icon(Icons.local_pizza,size: 50.0,),
+
+            ),
+
+            Expanded(child: rightPart())
+
+          ],
+        ),
+      ),
+    );
+
+  }
+
+
+
+
+ static Widget list( String Ftype, String Cname, String TandD){
+
+    return Expanded(
+      child: Column(
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(top: 7.0),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Text(Ftype,textDirection: TextDirection.ltr,overflow: TextOverflow.fade,style: Tstyle.SubHeader,),
+            ],
+          ),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Text(Cname,textDirection: TextDirection.ltr,overflow: TextOverflow.fade,style: Tstyle.tsyle_club,),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+             // Text(TandD,textDirection: TextDirection.ltr,overflow: TextOverflow.fade,style: Tstyle.tsyle_club,),
+            ],
+          )
+
+        ],
+      ),
+    );
+  }
+
+ static Widget list2(){
+    return Container(
+      height: 100.0,
+      padding: EdgeInsets.only(left: 9.0,right: 9.0),
 
       child: Card(
         elevation: 3.0,
@@ -47,7 +373,7 @@ class ListTest extends StatelessWidget{
 
             ),
 
-            list(food, club, time)
+            list('Pizza', 'Yemi', 'Mon, sep 4')
 
           ],
         ),
@@ -56,192 +382,29 @@ class ListTest extends StatelessWidget{
 
     );
   }
- var tsyle_food = TextStyle(
-   color: Colors.black,
-   fontSize: 20.0,
-   fontWeight: FontWeight.bold
-
- );
-  var tsyle_club =TextStyle(
-    color: Colors.grey,
-    fontSize: 15.0,
-    fontStyle: FontStyle.normal
-
-  );
- static Widget  SeconR(){
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        DandT(),
-        Text('Some Location'),
-        foodL()
-      ],
-    );
-  }
-  static Widget foodL(){
-    return Card(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          Card(elevation: 5.0,child: Text('Hello'),),
-          Card(elevation: 5.0,child: Text('Hello'),),
-          Card(elevation: 5.0,child: Text('Hello'),)
-        ],
-      ),
-    );
-  }
-
-  static Widget DandT(){
-    return Row(
-      children: <Widget>[
-        Text('Date'),
-        Padding(
-          padding: EdgeInsets.only(left: 5.0,right: 5.0),
-        ),
-        Text('Time')
-      ],
-    );
-  }
-
-  Widget Costum_divider(){
-    return Container(
-      height: 20.0,
-      width: 2.0,
-      color: Colors.red,
-      margin: const EdgeInsets.only(left: 5.0, right: 5.0),
-    );
-  }
-  Widget all2(){
-   return Container(
-     child: Card(
-       child: Row(
-
-         children: <Widget>[
-           Card(
-             elevation: 0.0,
-             child: Icon(Icons.local_pizza,size: 20.0,),
-
-           ),
-
-           SeconR()
-
-         ],
-       ),
-     ),
-   );
-
-  }
-}
-
-class blocks{
-  static Widget  SeconR(){
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        DandT(),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(left: 10.0),
-            ),
-            Icon(
-              Icons.place,
-              size: 16.0,
-              color: Colors.black,
-            ),
-            Text('Pearson',style: Tstyle.SubHeader,textAlign: TextAlign.left,),
-
-          ],
-        ),
-        foodL()
-      ],
-    );
-  }
-  static Widget foodL(){
-    return Card(
-      elevation: 0.0,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          Expanded(child: Container(
-            child: Center(child: Text('pizza',style: Tstyle.SubHeader,)),
-
-          foregroundDecoration: BoxDecoration(
-            border: Border.all(color: Colors.black,width: 2.0,
-            ),
-            borderRadius: BorderRadius.all(Radius.elliptical(10.0, 10.0)),
-
-          ) ,
-
-          )
-          ),
-          
-          Expanded(child: Card(elevation: 1.0,child: Center(child: Text('apples',style: Tstyle.SubHeader)),)),
-          
-          Expanded(child: Card(elevation: 1.0,child: Center(child: Text('snacks',style: Tstyle.SubHeader)),))
-        ],
-      ),
-    );
-  }
- static Widget Costum_divider(){
-    return Container(
-      height: 20.0,
-      width: 2.0,
-      color: Colors.black,
-      margin: const EdgeInsets.only(left: 5.0, right: 5.0),
-    );
-  }
-  static Widget DandT(){
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        Text('Mon, sep 20',style: Tstyle.SubHeader,),
-        Costum_divider(),
-        Text('6:45pm - 7:45pm',style: Tstyle.SubHeader,)
-      ],
-    );
-  }
 
 
-
- static Widget all2(){
-    return Container(
-      height: 100.0,
-      child: Card(
-        child: Row(
-
-          children: <Widget>[
-            Card(
-              elevation: 0.0,
-              child: Icon(Icons.local_pizza,size: 70.0,),
-
-            ),
-
-            Expanded(child: SeconR())
-
-          ],
-        ),
-      ),
-    );
-
-  }
 
 
 }
+
+
+
+
+
 class Tstyle{
   static var Header= TextStyle(
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.bold,
-    fontSize: 30.0,
-    color: Colors.black
+    fontSize: 20.0,
+    color: Colors.red
 
   );
 
   static var SubHeader = TextStyle(
       fontStyle: FontStyle.normal,
       fontWeight: FontWeight.normal,
-      fontSize: 20.0,
+      fontSize: 15.0,
       color: Colors.black
 
   );
@@ -249,7 +412,21 @@ class Tstyle{
       fontStyle: FontStyle.normal,
       fontWeight: FontWeight.normal,
       fontSize: 15.0,
-      color: Colors.black
+      color: Colors.red
+
+
+  );
+
+ static var tsyle_food = TextStyle(
+      color: Colors.red,
+      fontSize: 10.0,
+      fontWeight: FontWeight.bold
+
+  );
+ static var tsyle_club =TextStyle(
+      color: Colors.red,
+      fontSize: 10.0,
+      fontStyle: FontStyle.normal
 
 
   );
