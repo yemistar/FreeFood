@@ -1,4 +1,6 @@
 const express = require('express');
+const axios = require('axios');
+const cjson = require('circular-json');
 
 const { listEmails, getEmail } = require('../../fetch');
 
@@ -9,10 +11,19 @@ route.get('/', (req, res) => {
     listEmails(req.app.get('gmail')).then((list) => {
       //let promises = list.messages.map((m) => getEmails(gmail, m['id']))
 
-      let promises = [getEmail(req.app.get('gmail'), list.messages[0]['id'])]
+      let promises = []
+      for(let i = 0; i < 50; i++) {
+        promises.push(getEmail(req.app.get('gmail'), list.messages[i]['id']))
+      }
 
-      Promise.all(promises).then((data) => res.send(data))
+      Promise.all(promises).then((data) => {
+        let morePromises = data.map((d) => axios.post('http://127.0.0.1:5000', {email: d}))
 
+        Promise.all(morePromises).then((pdata) => {
+          let finalData = pdata.map((d) => d.data);
+          res.send(finalData);
+        });
+      });
     }).catch((err) => {
       console.log(err);
     });

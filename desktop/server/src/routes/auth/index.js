@@ -10,7 +10,6 @@ route.get('/redirect', (req, res) => {
   req.app.get('googleAuth').getToken(code, (err, token) => {
     if(err) { reject(err); }
     req.app.get('googleAuth').credentials = token;
-    console.log(req.app.get('googleAuth'))
     res.redirect('/');
   });
 });
