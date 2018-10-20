@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './UI/List_page.dart';
+import './Utils/Email.dart';
 
 void main()=> runApp(Login());
 
@@ -18,12 +18,7 @@ class Login extends StatelessWidget{
       home: Scaffold(
         appBar: AppBar( title: Text('Hello'),),
         body: Center(
-          child: ListTest(food: "Pizza",
-          club: "Yemi club",
-          time: "6pm",
-          date: "mon sep 20",
-          place: "Pearson",
-          icon: Icons.local_pizza,),
+          child: ListTest(),
         ),
       ),
     );
