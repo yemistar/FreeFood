@@ -1,30 +1,17 @@
 import 'package:flutter/material.dart';
+import './UI/list_page.dart';
 
 import './Utils/Email.dart';
 
-void main()=> runApp(Login());
+void main()=> runApp(App());
 
-
-
-class Login extends StatelessWidget{
-
-
-
-
+class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title:'Test' ,
-      home: Scaffold(
-        appBar: AppBar( title: Text('Hello'),),
-        body: Center(
-          child: ListTest(),
-        ),
-      ),
+      title: 'Title',
+
+      home: Emails(),
     );
   }
-
-
-
-
 }
