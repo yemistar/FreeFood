@@ -21,11 +21,13 @@ export default class CondencedEmail extends Component {
 
   renderLocations(locations) {
     let arr = []
+    let index = 0;
     if(locations) {
       for(let i = 0; i < 2; i++) {
         let loc = locations[i]
         if(loc) {
-          arr.push(<span key={"l-" + i} className="cemail__location">{loc}</span>);
+          arr.push(<span key={"l-" + index} className="cemail__location">{loc}</span>);
+          index+=1;
         } else {
           break;
         }
@@ -36,12 +38,13 @@ export default class CondencedEmail extends Component {
 
   renderDatesandTimes(dates, times) {
     let dateTimeString = [];
+    let index = 0;
     if(dates) {
       for(let i = 0; i < 2; i++) {
         let d = dates[i]
         if(d) {
           dateTimeString.push(d);
-          if(i !== 1 && dates[i+1]) { dateTimeString.push(<b className="cemail__seperator">or</b>) }
+          if(i !== 1 && dates[i+1]) { dateTimeString.push(<b key={"l-"+ index} className="cemail__seperator">or</b>); index+=1; }
         } else {
           break;
         }
@@ -49,12 +52,12 @@ export default class CondencedEmail extends Component {
     }
 
     if(times) {
-      if(dateTimeString.length > 0) { dateTimeString.push(<b className="cemail__seperator">at</b>); }
+      if(dateTimeString.length > 0) { dateTimeString.push(<b key={"l-"+ index} className="cemail__seperator">at</b>); index+=1; }
       for(let i = 0; i < 2; i++) {
         let t = times[i]
         if(t) {
           dateTimeString.push(t);
-          if(i !== 1 && times[i+1]) { dateTimeString.push(<b className="cemail__seperator">or</b>) }
+          if(i !== 1 && times[i+1]) { dateTimeString.push(<b key={"l-"+ index} className="cemail__seperator">or</b>); index+=1; }
         } else {
           break;
         }
@@ -97,7 +100,7 @@ export default class CondencedEmail extends Component {
 
 
     return (
-      <div className="cemail__container animatedFast fadeInLeft" style={{display}}>
+      <div className="cemail__container animatedFast fadeInLeft" style={{display}} onClick={() => this.props.onClick()}>
         {locationsJSX}
         {datetimesJSX}
         <div className="cemail__foods">{this.renderFoods(entities['foods'])}</div>

@@ -1,0 +1,28 @@
+.femail {
+
+  &__container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #fafafa;
+    margin: 40px;
+    margin-top: 30px;
+    padding: 20px;
+    color: #555;
+    border-radius: 4px;
+  }
+
+  &__entity {
+    margin-right: 5px;
+  }
+
+  &__subject {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  &__raw {
+    margin: 0;
+  }
+
+}

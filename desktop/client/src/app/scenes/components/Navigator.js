@@ -3,6 +3,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { history } from '../../../index.js';
+
 class Navigator extends Component {
   constructor(props) {
       super(props);
@@ -19,9 +21,9 @@ class Navigator extends Component {
   render() {
     return (
       <div className="navigator__container">
-        <div className="navigator__element">Home</div>
+        <div className="navigator__element" onClick={() => history.push('/')}>Home</div>
         <div className="navigator__title animated fadeInDown">Free Food!</div>
-        <div className="navigator__element">Login</div>
+        <div className="navigator__element" onClick={() => history.push('/auth/login')}>Login</div>
       </div>
     );
   }

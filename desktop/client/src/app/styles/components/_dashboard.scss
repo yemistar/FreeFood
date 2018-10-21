@@ -3,6 +3,14 @@
   &__emailcontainer {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__condencedcontainer {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
   }
@@ -13,6 +21,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  &__loadingtext {
+    color: #2d5986;
+    font-size: 20px;
   }
 
 }
