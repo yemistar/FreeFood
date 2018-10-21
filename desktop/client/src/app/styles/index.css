@@ -83,7 +83,35 @@
 .cemail__times {
   margin-bottom: 10px; }
 
+.femail__container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+  margin: 40px;
+  margin-top: 30px;
+  padding: 20px;
+  color: #555;
+  border-radius: 4px; }
+
+.femail__entity {
+  margin-right: 5px; }
+
+.femail__subject {
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
+.femail__raw {
+  margin: 0; }
+
 .dashboard__emailcontainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.dashboard__condencedcontainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -95,6 +123,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center; }
+
+.dashboard__loadingtext {
+  color: #2d5986;
+  font-size: 20px; }
 
 body {
   margin: 0;

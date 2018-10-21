@@ -10,7 +10,7 @@ var route = require('express').Router();
 
 route.use(prolong);
 
-route.get('/list', googleAuthenticate, (req, res) => {
+route.post('/list', googleAuthenticate, (req, res) => {
   const { pageToken } = req.body;
 
   listEmails(req.app.get('gmail'), pageToken).then((list) => {

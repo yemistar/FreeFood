@@ -13,7 +13,7 @@ route.get('/redirect', (req, res) => {
     req.app.get('googleAuth').setCredentials(tokens);
     req.session['tokens'] = tokens;
 
-    res.redirect('/api/list');
+    res.redirect('/');
   });
 });
 
