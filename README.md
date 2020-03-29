@@ -2,6 +2,8 @@
 
 To edit, fork and submit a pull request please!
 
+![screenshot](https://github.com/yemistar/FreeFood/blob/master/freefood_app.png)
+
 <h2>Contributing to email dataset</h2>
 
 Adding sample emails to the dataset requires a specific process. Simply copying and pasting will not work.
