@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "android": "0.0.8",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "moment": "^2.22.2",
     "node-emoji": "^1.8.1",
     "react": "16.3.1",
